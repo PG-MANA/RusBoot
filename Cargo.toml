@@ -1,0 +1,9 @@
+[package]
+name = "rusboot"
+version = "0.0.1"
+authors = [ "PG_MANA <pg_mana@taprix.org>" ]
+description = "The bootloader for Multiboot2 written in Rust"
+keywords = ["bootloader", "multiboot"]
+categories = ["os", "operating-system"]
+license = "Apache-2.0"
+
