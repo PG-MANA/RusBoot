@@ -3,7 +3,6 @@
 
 //use
 use super::text::output::EfiOutputProtocol;
-use core::ffi::c_void;
 
 //type
 pub type EfiHandle = usize;
