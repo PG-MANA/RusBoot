@@ -19,7 +19,7 @@ RUST_TARGET = $(TARGET_ARCH)-unknown-uefi
 MKDIR = mkdir -p
 CP = cp -rf
 RM = rm -rf
-XARGO = xargo
+CARGO = cargo
 QEMU = qemu-system-$(TARGET_ARCH)
 QEMU_FLAGS = -drive if=pflash,format=raw,readonly,file=bin/$(TARGET_ARCH)/OVMF/OVMF_CODE.fd -drive if=pflash,format=raw,file=tmp/$(TARGET_ARCH)/OVMF/OVMF_VARS.fd
 
@@ -28,7 +28,7 @@ default:
 	$(MAKE) bootloader
 
 clean:
-	$(XARGO) clean
+	$(CARGO) clean
 	$(RM) tmp
 
 run:
@@ -46,7 +46,7 @@ bootloader:
 # ファイル生成規則
 $(NAME).efi : Cargo.toml
 ifeq ($(TARGET_MODE),release)
-		$(XARGO) build --target $(RUST_TARGET) --$(TARGET_MODE)
+		$(CARGO) xbuild --target $(RUST_TARGET) --$(TARGET_MODE)
 else
-		$(XARGO) build --target $(RUST_TARGET)
+		$(CARGO) xbuild --target $(RUST_TARGET)
 endif
